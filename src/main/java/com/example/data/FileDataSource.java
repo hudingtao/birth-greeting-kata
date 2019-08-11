@@ -1,4 +1,4 @@
-package com.example.utils;
+package com.example.data;
 
 import com.example.model.Employee;
 import org.apache.commons.io.IOUtils;
@@ -15,10 +15,11 @@ import java.util.List;
  * @author xiaotao
  * @version 1.0
  */
-public class FileUtil {
-    private static final String PATH = FileUtil.class.getResource("/").getPath() + "employee_records.txt";
+public class FileDataSource implements DataSoure{
+    private static final String PATH = FileDataSource.class.getResource("/").getPath() + "employee_records.txt";
 
-    public static List<Employee> loadData() {
+    @Override
+    public List<Employee> loadData() {
         List<Employee> employees = new ArrayList<>();
         try {
             List<String> lines = IOUtils.readLines(
